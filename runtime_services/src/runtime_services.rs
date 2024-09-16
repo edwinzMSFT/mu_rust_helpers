@@ -7,10 +7,7 @@ extern crate alloc;
 
 pub mod allocation;
 pub mod boxed;
-pub mod event;
-pub mod protocol_handler;
 pub mod static_ptr;
-pub mod tpl;
 
 #[cfg(any(test, feature = "mockall"))]
 use mockall::automock;
