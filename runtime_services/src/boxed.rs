@@ -14,13 +14,14 @@ pub struct RuntimeServicesBox<'a, T: ?Sized, B: RuntimeServices> {
 }
 
 impl<'a, T, B: RuntimeServices> RuntimeServicesBox<'a, T, B> {
+/*
     pub fn new(value: T, memory_type: MemoryType, runtime_services: &'a B) -> Self {
         let size = mem::size_of_val(&value);
         let ptr = runtime_services.allocate_pool(memory_type, size).unwrap() as *mut T;
         unsafe { ptr::write(ptr, value) };
         Self { runtime_services, ptr }
     }
-
+*/
     pub unsafe fn from_raw(ptr: *mut T, runtime_services: &'a B) -> Self {
         Self { runtime_services, ptr }
     }
@@ -48,8 +49,9 @@ impl<'a, T, B: RuntimeServices> RuntimeServicesBox<'a, [T], B> {
 }
 
 impl<T: ?Sized, B: RuntimeServices> Drop for RuntimeServicesBox<'_, T, B> {
+
     fn drop(&mut self) {
-        let _ = self.runtime_services.free_pool(self.ptr as *mut u8);
+        //let _ = self.runtime_services.free_pool(self.ptr as *mut u8);
     }
 }
 
