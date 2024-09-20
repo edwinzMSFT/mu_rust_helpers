@@ -36,7 +36,7 @@ edition.workspace = true
 include.workspace = true
 
 [features]
-default = ["boot_services", "guid", "tpl_mutex"]
+default = ["boot_services", "runtime_services", "guid", "tpl_mutex"]
 boot_services = ["dep:boot_services"]
 runtime_services = ["dep:runtime_services"]
 guid = ["dep:guid"]
